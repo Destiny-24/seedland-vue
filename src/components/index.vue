@@ -4,8 +4,9 @@
       <video muted class="bg-video" src="../assets/video.mp4" autoplay loop></video>
     </div>
     <div class="sidenav">
-      <img src="../assets/image/hamburger.png" alt="" >
+      <img src="../assets/image/hamburger.png" alt="">
     </div>
+    <sidenav  />
     <full-page
       class="fullpage-container"
       ref="fullpage"
@@ -29,6 +30,7 @@ import Examples from "./Examples";
 import wisdom from "./wisdom";
 import course from "./course";
 import contact from "./contact";
+import sidenav from "./sideNav"
 export default {
   data(){
     return{
@@ -42,9 +44,11 @@ export default {
           "wisdom",
           "course", 
           "contact"
-        ]
+        ],
       },
     }
+  },
+  methods:{
   },
   components:{
     login,
@@ -53,6 +57,7 @@ export default {
     wisdom,
     course,
     contact,
+    sidenav,
   }
 }
 </script>
@@ -84,7 +89,7 @@ export default {
   position: absolute;
   right: 46px;
   top: 47px;
-  z-index: 1000;
+  z-index: 10;
   img{
     margin-left: 16px;
     width: 28px;
