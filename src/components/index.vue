@@ -4,21 +4,28 @@
       <video muted class="bg-video" src="../assets/video.mp4" autoplay loop></video>
     </div>
     <div class="sidenav">
-      <img src="../assets/image/hamburger.png" alt="">
+      <img src="../assets/image/hamburger.png" alt @click="display = true" />
     </div>
-    <sidenav  />
-    <full-page
-      class="fullpage-container"
-      ref="fullpage"
-      :options="options"
-      id="fullpage"
-    >
-    <div class="section login" ><login /></div>
-    <div class="section service" ><service /></div>
-    <div class="section Examples" ><Examples /></div>
-    <div class="section wisdom" ><wisdom /></div>
-    <div class="section course" ><course /></div>
-    <div class="section contact" ><contact /></div>
+    <sidenav v-if="display" @sidemenu="closeNav" />
+    <full-page class="fullpage-container" ref="fullpage" :options="options" id="fullpage">
+      <div class="section login">
+        <login />
+      </div>
+      <div class="section service">
+        <service />
+      </div>
+      <div class="section Examples">
+        <Examples />
+      </div>
+      <div class="section wisdom">
+        <wisdom />
+      </div>
+      <div class="section course">
+        <course />
+      </div>
+      <div class="section contact">
+        <contact />
+      </div>
     </full-page>
   </div>
 </template>
@@ -30,51 +37,50 @@ import Examples from "./Examples";
 import wisdom from "./wisdom";
 import course from "./course";
 import contact from "./contact";
-import sidenav from "./sideNav"
+import sidenav from "./sideNav";
 export default {
-  data(){
-    return{
-        options: {
+  data() {
+    return {
+      display: false,
+      options: {
         licenseKey: "4F375E3E-7D814D7F-B82954BA-31DC667F",
         menu: "#menu",
-        anchors: [
-          "login",
-          "service",
-          "Examples",
-          "wisdom",
-          "course", 
-          "contact"
-        ],
-      },
+        anchors: ["login", "service", "Examples", "wisdom", "course", "contact"]
+      }
+    };
+  },
+  methods: {
+    closeNav(val){
+      this.display = val
     }
   },
-  methods:{
-  },
-  components:{
+  components: {
     login,
     service,
     Examples,
     wisdom,
     course,
     contact,
-    sidenav,
+    sidenav
   }
-}
+};
 </script>
 
 <style lang="less">
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-#app,body,html{
+#app,
+body,
+html {
   width: 100%;
   height: 100%;
   position: relative;
 }
-.video{
-  .bg-video{
+.video {
+  .bg-video {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -85,12 +91,12 @@ export default {
     object-fit: cover;
   }
 }
-.sidenav{
+.sidenav {
   position: absolute;
   right: 46px;
   top: 47px;
   z-index: 10;
-  img{
+  img {
     margin-left: 16px;
     width: 28px;
     height: 16px;

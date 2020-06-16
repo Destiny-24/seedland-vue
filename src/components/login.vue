@@ -87,7 +87,7 @@ export default {};
         padding: 45px 135px 0 40px;
         a {
           text-decoration: none;
-          color: #66a8b4;
+          color: #050c1f;
           font-size: 18px;
         }
       }

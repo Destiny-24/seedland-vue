@@ -1,7 +1,7 @@
 <template>
-  <div class="side-nav" >
+  <div class="side-nav">
     <div class="nav-container">
-      <img src="@/assets/image/close.png" >
+      <img src="@/assets/image/close.png" @click="sidemenu">
       <div class="nav-list">
         <a class="nav-item" href="#login" >
           01
@@ -52,7 +52,11 @@
 
 <script>
 export default {
-
+ methods:{
+   sidemenu(){
+     this.$emit('sidemenu',false)
+   }
+ }
 }
 </script>
 
